@@ -4,16 +4,14 @@ import os
 import random
 import numpy as np
 import pickle
-import json
-import urllib.parse
 from reportlab.lib.pagesizes import letter
 from reportlab.lib import colors
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 
 
-application = Flask(__name__)  # changed
-application.secret_key = os.urandom(24)
+app = Flask(__name__)  # changed
+app.secret_key = os.urandom(24)
 
 # try:
 #    # Establish the connection
@@ -217,17 +215,17 @@ def create_pdf(filename, data, user_name):
     doc.build(story)
 
 
-@application.route('/')
+@app.route('/')
 def login():
     return render_template('login.html')
 
 
-@application.route('/register')
+@app.route('/register')
 def about():
     return render_template('register.html')
 
 
-@application.route('/home')
+@app.route('/home')
 def home():
     if 'user_id' in session:
         score = None  # Default value if 'score' is not in session
@@ -243,7 +241,7 @@ def home():
         return redirect('/')
 
 
-@application.route('/Model_input_details', methods=['POST'])
+@app.route('/Model_input_details', methods=['POST'])
 def Model_input_details():
     print("inside model result..")
 
@@ -298,7 +296,7 @@ def Model_input_details():
     return redirect('/home')
 
 
-@application.route('/generate_and_download_pdf')
+@app.route('/generate_and_download_pdf')
 def generate_and_download_pdf():
     print('inside generate_and_download_pdf')
     current_directory = os.getcwd()
@@ -391,7 +389,7 @@ def generate_and_download_pdf():
 #         return render_template('home.html', score='', input_values=default_values)
 
 
-@application.route('/login_validation', methods=['POST'])
+@app.route('/login_validation', methods=['POST'])
 def login_validation():
     email = request.form.get('email')
     password = request.form.get('password')
@@ -442,7 +440,7 @@ def login_validation():
             conn.close()
 
 
-@application.route('/logout')
+@app.route('/logout')
 def logout():
     if 'user_id' in session:
         session.pop('user_id')
@@ -453,4 +451,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    application.run(debug=True)
+    app.run(debug=True)
