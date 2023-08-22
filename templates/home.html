@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='css/style.css')}}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bgg">
+    <div
+      class="d-flex bg-nav text-light flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow"
+    >
+      <h5 class="my-0 mr-md-auto font-weight-normal">Credit Score App</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-light" href="#">Home</a>
+        <a class="p-2 text-light" href="#">About</a>
+      </nav>
+      <a class="btn btn-outline-warning" href="/logout">Logout</a>
+    </div>
+
+    <!-- home details -->
+    <div class="container">
+      <form class="form" method="post" action="/Model_input_details">
+        <h5 style="color: brown">Enter Details To Check Score Score :</h5>
+        <div class="row mt-3">
+          <div class="col-md-3">
+            <!-- First Column -->
+            <div class="form-group">
+              <label for="Annual_Income" style="color: rgb(24, 3, 66)" ;
+                >Annual Income</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="Annual_Income"
+                name="Annual_Income"
+                required
+              />
+            </div>
+            <!-- <div class="form-group">
+              <label for="Monthly_Inhand_Salary">Monthly Inhand Salary</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Monthly_Inhand_Salary"
+                name="Monthly_Inhand_Salary"
+                required
+              />
+            </div> -->
+            <!-- <div class="form-group">
+              <label for="Monthly_Inhand_Salary">Monthly Inhand Salary</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Monthly_Inhand_Salary"
+                name="Monthly_Inhand_Salary"
+              />
+            </div> -->
+            <div class="form-group">
+              <label for="Num_Credit_Card" style="color: rgb(24, 3, 66)"
+                >Number of Credit Cards</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="Num_Credit_Card"
+                name="Num_Credit_Card"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="Num_of_Delayed_Payment"
+                >Number of Delayed Payments</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="Num_of_Delayed_Payment"
+                name="Num_of_Delayed_Payment"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="Changed_Credit_Limit" style="color: rgb(24, 3, 66)"
+                >Changed Credit Limit</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="Changed_Credit_Limit"
+                name="Changed_Credit_Limit"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="Num_Credit_Inquiries" style="color: rgb(24, 3, 66)"
+                >Number Of Credit Inquiries</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="Num_Credit_Inquiries"
+                name="Num_Credit_Inquiries"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <!-- Second Column -->
+            <div class="form-group">
+              <label for="Credit_Mix" style="color: rgb(24, 3, 66)"
+                >Credit Mix</label
+              >
+              <!-- <input
+                type="text"
+                class="form-control"
+                id="Credit_Mix"
+                name="Credit_Mix"
+                placeholder="Enter credit mix: Poor (0), Standard (1), Good (2)"
+                required
+              /> --><select
+                class="form-control"
+                id="Credit_Mix"
+                name="Credit_Mix"
+                required
+              >
+                <option value="" disabled selected>Select credit mix</option>
+                <option value="0">Low</option>
+                <option value="1">Average</option>
+                <option value="2">High</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Outstanding_Debt" style="color: rgb(24, 3, 66)"
+                >Outstanding Debt</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="Outstanding_Debt"
+                name="Outstanding_Debt"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label
+                for="Credit_Utilization_Ratio"
+                style="color: rgb(24, 3, 66)"
+                >Credit Utilization Ratio</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="Credit_Utilization_Ratio"
+                name="Credit_Utilization_Ratio"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="Credit_History_Age" style="color: rgb(24, 3, 66)"
+                >Credit History Age</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="Credit_History_Age"
+                name="Credit_History_Age"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="Users_name" style="color: rgb(24, 3, 66)"
+                >Enter Your Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="Users_name"
+                name="Users_name"
+                required
+              />
+            </div>
+
+            <!-- <div class="form-group">
+              <label for="Monthly_Balance">Monthly Balance</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Monthly_Balance"
+                name="Monthly_Balance"
+              />
+            </div> -->
+            <div class="col mt-3 mb-3">
+              <button
+                type="submit"
+                class="btn btn-primary btn-outline-dark mt-3 ml-5"
+              >
+                Submit
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary btn-outline-dark mt-3 ml-2"
+                onclick="resetForm()"
+              >
+                Reset
+              </button>
+            </div>
+            <!-- ... Add more inputs ... -->
+          </div>
+          <!-- added by av -->
+          {% if score %}
+          <div class="col-md-3">
+            <h4 style="color: brown; text-align: center">
+              Your Credit Score Is :
+            </h4>
+            <br />
+            {% if score == 'good' %}
+            <div
+              class="card text-white bg-success ml-50"
+              style="max-width: 10rem"
+            >
+              <div class="card-body">
+                <h4 style="text-align: center">Good</h4>
+              </div>
+            </div>
+            {% elif score == 'standard' %}
+            <div
+              class="card text-white bg-warning ml-50"
+              style="max-width: 10rem"
+            >
+              <div class="card-body">
+                <h4 style="text-align: center">Standard</h4>
+              </div>
+            </div>
+            {% elif score == 'poor' %}
+            <div
+              class="card text-white bg-danger ml-50"
+              style="max-width: 10rem"
+            >
+              <div class="card-body">
+                <h4 style="text-align: center">Poor</h4>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          <div class="col-md-3 ml-10">
+            <h4 style="color: brown">Credit details :</h4>
+            <br />
+            <div
+              style="border: 2px solid brown; padding: 10px; list-style: none"
+            >
+              <ul>
+                <li style="font-size: 15px; color: rgb(52, 0, 81)">
+                  {% if name %} User Name : {{name}} {% endif %}
+                </li>
+                {% for key, value in details.items() %}
+                <li style="font-size: 15px; color: rgb(52, 0, 81)">
+                  {{ key }} : {{ value }}
+                </li>
+                {% endfor %}
+              </ul>
+              <br />
+              <p style="color: blue">
+                Download credit score detail report with suggestions &#8681;
+              </p>
+              <!-- <a href=""
+                >Download credit score detail report with suggestions
+              </a> -->
+              <!-- <form
+                method="post"
+                action="{{ url_for('generate_and_download_pdf') }}"
+              >
+                <button type="submit" class="btn btn-primary">
+                  Generate and Download PDF
+                </button>
+              </form> -->
+              <!-- <button
+                type="button"
+                class="btn btn-primary btn-outline-dark mt-3 ml-60"
+                onclick="navigateToPDFRoute()"
+              >
+                Download
+              </button> -->
+              <a
+                href="{{ url_for('generate_and_download_pdf') }}"
+                class="btn btn-primary btn-outline-dark mt-3 ml-60"
+                >Download</a
+              >
+
+              <br />
+            </div>
+          </div>
+
+          {% endif %}
+          <!-- added by av -->
+          {% if request.args.get('score') %}
+          <div class="col-md-6">
+            <h4 style="color: brown; text-align: center">
+              Your Credit Score Is :
+            </h4>
+            <br />
+            {% if request.args.get('score') == 'good' %}
+            <div
+              class="card text-white bg-success ml-180"
+              style="max-width: 10rem"
+            >
+              <div class="card-body">
+                <h5 class="card-title" style="text-align: center">Good</h5>
+              </div>
+            </div>
+            {% elif request.args.get('score') == 'standard' %}
+            <div
+              class="card text-white bg-warning ml-180"
+              style="max-width: 10rem"
+            >
+              <div class="card-body">
+                <h5 class="card-title" style="text-align: center">Standard</h5>
+              </div>
+            </div>
+            {% elif request.args.get('score') == 'poor' %}
+            <div
+              class="card text-white bg-danger ml-180"
+              style="max-width: 10rem"
+            >
+              <div class="card-body">
+                <h5 class="card-title" style="text-align: center">Poor</h5>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+
+          {% endif %}
+        </div>
+      </form>
+    </div>
+
+    <script>
+      function resetForm() {
+        document.querySelector("form").reset();
+      }
+    </script>
+    <!-- <script>
+      function navigateToPDFRoute() {
+        window.location.href = "{{ url_for('generate_and_download_pdf') }}";
+      }
+    </script> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
