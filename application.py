@@ -303,6 +303,12 @@ def generate_and_download_pdf():
     print('inside generate_and_download_pdf')
     current_directory = os.getcwd()
     output_folder = os.path.join(current_directory, "pdfs")
+    if not os.path.exists(output_folder):
+        # Create the "pdfs" directory
+        os.makedirs(output_folder)
+        print(f"'pdfs' directory created at: {output_folder}")
+    else:
+        print(f"'pdfs' directory already exists at: {output_folder}")
     user_name = session['name']
     pdf_name = user_name + "_" + "credit_score_report.pdf"
     output_path = os.path.join(output_folder, pdf_name)
